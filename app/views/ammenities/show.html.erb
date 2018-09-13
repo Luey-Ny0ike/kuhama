@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ammenity.name %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @ammenity.icon %>
+</p>
+
+<%= link_to 'Edit', edit_ammenity_path(@ammenity) %> |
+<%= link_to 'Back', ammenities_path %>

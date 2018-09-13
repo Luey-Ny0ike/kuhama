@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asset name:</strong>
+  <%= @listing.asset_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Pricing:</strong>
+  <%= @listing.pricing %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @listing.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @listing.email %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @listing.website %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>

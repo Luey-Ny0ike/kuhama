@@ -1,0 +1,22 @@
+<%= form_with(model: listing_category, local: true) do |form| %>
+  <% if listing_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing_category.errors.count, "error") %> prohibited this listing_category from being saved:</h2>
+
+      <ul>
+      <% listing_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :listing_category_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
