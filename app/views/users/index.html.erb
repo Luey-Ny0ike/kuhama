@@ -1,0 +1,16 @@
+<h1>All users</h1>
+
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+
+        <div class="caption">
+          <h3><%=user.first_name%></h3>
+          <p>TODO: Add user bio.</p>
+          <p><a href="<%=user_path(user)%>" class="btn btn-primary" role="button">Profile</a></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
