@@ -5,7 +5,7 @@ class CreateListings < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :pricing
       t.integer :phone_number
-      t.sring :email
+      t.string :email
       t.string :website
 
       t.timestamps
