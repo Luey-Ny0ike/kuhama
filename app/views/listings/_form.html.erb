@@ -16,6 +16,10 @@
     <%= form.text_field :asset_name, id: :listing_asset_name %>
   </div>
 
+<div class="field">
+  <%= form.label :Category %>
+  <%= collection_select(:listing, :listing_category_id, ListingCategory.all, :id, :name_with_state) %>
+</div>
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :listing_description %>
