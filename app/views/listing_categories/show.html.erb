@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(@listing_category.image.variant(resize: "400x400")) if @listing_category.image.attached? %>
 <p>
   <strong>Name:</strong>
   <%= @listing_category.name %>

@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<% @listing.images.each do |image| %>
+  <%= image_tag image.variant(resize: "400x400") %>
+<% end %>
 <p>
   <strong>Asset name:</strong>
   <%= @listing.asset_name %>
