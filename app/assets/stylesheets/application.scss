@@ -13,3 +13,15 @@
  */
 
 @import "bootstrap";
+.listing-single{
+  height: 500px !important;
+}
+.new-listing{
+  background-color: white;
+  color: black;
+}
+.cdf{
+  background-image: linear-gradient(to right top, #becee7, #a8ceee, #8bcff2, #64d0f2, #26d1eb);
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
