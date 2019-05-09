@@ -1,56 +1,86 @@
-<%= form_with(model: listing, local: true) do |form| %>
-  <% if listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+<%= form_with(model: listing, local: true, class: "probootstrap-form") do |form| %>
+<% if listing.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(listing.errors.count, "error") %>
+      prohibited this listing from being saved:</h2>
 
-      <ul>
+    <ul>
       <% listing.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :images%>
-    <%= form.file_field :images, multiple: true %>
+    </ul>
   </div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :asset_name %>
-    <%= form.text_field :asset_name, id: :listing_asset_name %>
-  </div>
 
-<div class="field">
-  <%= form.label :Category %>
-  <%= collection_select(:listing, :listing_category_id, ListingCategory.all, :id, :name_with_state) %>
+<div class="field col-md-10">
+  <%= form.label :asset_name %><br>
+  <%= form.text_field :asset_name, id: :listing_asset_name, class:"form-control" %>
 </div>
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :listing_description %>
-  </div>
 
-  <div class="field">
-    <%= form.label :pricing %>
-    <%= form.text_field :pricing, id: :listing_pricing %>
-  </div>
+<div class="field col-md-10">
+  <%= form.label :Category %><br>
+  <%= collection_select(:listing, :listing_category_id, ListingCategory.all, :id, :name_with_state, class:"form-control") %>
+</div>
 
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.number_field :phone_number, id: :listing_phone_number %>
-  </div>
+<div class="field col-md-10">
+  <%= form.label :pricing, "Pricing (Ksh.)"%><br>
+  <%= form.text_field :pricing, id: :listing_pricing, class:"form-control" %>
+</div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :listing_email %>
-  </div>
+<div class="field col-md-10">
+  <%= form.label :No_of_rooms, "No. of bedrooms" %><br>
+  <%= form.text_field :rooms, id: :listing_rooms, class:"form-control" %>
+</div>
 
-  <div class="field">
-    <%= form.label :website %>
-    <%= form.text_field :website, id: :listing_website %>
-  </div>
+<div class="field col-md-10">
+  <%= form.label :no_of_bathrooms, "No. of bathrooms" %><br>
+  <%= form.text_field :bathrooms, id: :listing_bathrooms, class:"form-control" %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="field col-md-10">
+  <%= form.label :size, "Size(m2)" %><br>
+  <%= form.text_field :size, id: :listing_size, class:"form-control" %>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :ammenities %><br>
+   <%= collection_check_boxes(:listing, :ammenity_ids, Ammenity.all, :id, :name, {include_hidden: false}) do |b| %>
+   <div class="col-md-3">
+   <%= b.label class:"label-checkbox" do %>
+   <%= b.check_box %>
+   <%= b.text %>
+   <% end %>
+ </div>
+   <% end %>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :phone_number %><br>
+  <%= form.number_field :phone_number, id: :listing_phone_number, class:"form-control" %>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :email %><br>
+  <%= form.text_field :email, id: :listing_email, class:"form-control" %>
+</div>
+
+<div class="form-group col-md-10">
+  <%= form.label :website %><br>
+  <%= form.text_field :website, id: :listing_website, class:"form-control" %>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :description %><br>
+  <%= form.text_area :description, id: :listing_description, class:"form-control", size:"50x10" %>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :images%><br>
+  <%= form.file_field :images, multiple: true %>
+</div>
+
+<div class="actions col-md-12"><br>
+  <%= form.submit class:"btn btn-primary" %>
+</div>
 <% end %>
