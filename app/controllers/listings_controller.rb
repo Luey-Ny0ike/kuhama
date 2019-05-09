@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_listing, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new edit update destroy]
 
   # GET /listings
   # GET /listings.json
@@ -10,8 +10,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1
   # GET /listings/1.json
-  def show
-  end
+  def show; end
 
   # GET /listings/new
   def new
@@ -19,8 +18,7 @@ class ListingsController < ApplicationController
   end
 
   # GET /listings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /listings
   # POST /listings.json
@@ -33,6 +31,12 @@ class ListingsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
+      end
+
+      @ammenities = Ammenity.find(params[:listing][:ammenity_ids])
+      if @ammenities.nil?
+      else
+      @listing.update(ammenities: @ammenities)
       end
     end
   end
@@ -48,6 +52,11 @@ class ListingsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
+      @ammenities = Ammenity.find(params[:listing][:ammenity_ids])
+      if @ammenities.nil?
+      else
+      @listing.update(ammenities: @ammenities)
+      end
     end
   end
 
@@ -62,13 +71,14 @@ class ListingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-      @listing = Listing.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def listing_params
-      params.require(:listing).permit(:asset_name, :description, :pricing, :phone_number, :email, :website, :listing_category_id, :user_id, images:[])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def listing_params
+    params.require(:listing).permit(:asset_name, :description, :pricing, :phone_number, :email, :website, :rooms, :bathrooms, :size, :listing_category_id, :user_id, images: [])
+  end
 end
