@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   resources :listings do
     resources :ratings
   end
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
   get '/faq', to: "home#faq"
+  get '/about_us', to: "home#about_us"
 
   # User dashboard routes
   get 'users', to: "users#index", as: "users"
