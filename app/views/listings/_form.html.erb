@@ -65,6 +65,27 @@
   <%= form.text_field :email, id: :listing_email, class:"form-control" %>
 </div>
 
+<div class="field col-md-10">
+  <h4 class="md30">Location input.</h4>
+  <%= form.label :Country %><br>
+  <%= form.country_select("country", only: ["KE", "UG", "TZ"])%>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :State %>
+  <%= form.text_field :state, id: :listing_state, class: "form-control" %>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :City %>
+  <%= form.text_field :city, id: :listing_city, class:"form-control" %>
+</div>
+
+<div class="field col-md-10">
+  <%= form.label :Street %>
+  <%= form.text_field :street, id: :listing_street, class:"form-control" %>
+</div>
+
 <div class="form-group col-md-10">
   <%= form.label :website %><br>
   <%= form.text_field :website, id: :listing_website, class:"form-control" %>
