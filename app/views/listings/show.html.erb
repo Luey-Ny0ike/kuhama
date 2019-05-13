@@ -25,16 +25,8 @@
       <div class="col-md-4">
         <h2>Description</h2>
         <p><%= @listing.description %> Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <p class="mb20">
-          <strong class="probootstrap-black-color">Role:</strong> <br>
-          Design <br>
-          Branding <br>
-          Mobile Design
-        </p>
-        <p class="mb50">
-          <strong class="probootstrap-black-color">Client</strong> <br>
-          Google, Inc.
-        </p>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@listing.latitude}%2C#{@listing.longitude}" %>
+
 
         <p>
           <a href="#" role="button" class="btn btn-primary">Contact Seller</a>
