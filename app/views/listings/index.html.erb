@@ -39,6 +39,7 @@
         <% end %>
         <div class="col-md-3 col-sm-3">
           <%= form_tag listings_path, :method=> "get" do %>
+          <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']])%><br>
           <label for="">No of bedrooms</label><br>
           <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]])%><br>
           <label for="">No of bathrooms</label><br>

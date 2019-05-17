@@ -19,6 +19,10 @@
 </div>
 
 <div class="field col-md-10">
+  <%= form.label :main_category %><br>
+  <%= form.select :main_category, options_for_select([['For Rent'], ['For Sale']])%>
+</div>
+<div class="field col-md-10">
   <%= form.label :Category %><br>
   <%= collection_select(:listing, :listing_category_id, ListingCategory.all, :id, :name_with_state, class:"form-control") %>
 </div>

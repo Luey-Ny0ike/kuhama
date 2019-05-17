@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
   include Filterable
   scope :rooms, -> (rooms) { where ("rooms >= " "#{rooms}") }
+  scope :main_category, -> (main_category) { where main_category: main_category }
   scope :bathrooms, -> (bathrooms) { where ("bathrooms >= " "#{bathrooms}") }
   scope :asset_size, -> (size) { where ("size >= " "#{ size }") }
   scope :min_price, -> (min_price) { where ("listings.pricing >= " "#{ min_price }") }
