@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price))
   end
 
   # GET /listings/1
@@ -33,10 +33,11 @@ class ListingsController < ApplicationController
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
 
-      @ammenities = Ammenity.find(params[:listing][:ammenity_ids])
-      if @ammenities.nil?
+      @search_items = params[:listing][:ammenity_ids]
+      if @search_items.nil? == true
       else
-      @listing.update(ammenities: @ammenities)
+        @ammenities = Ammenity.find(@search_items)
+        @listing.update(ammenities: @ammenities)
       end
     end
   end
@@ -52,10 +53,11 @@ class ListingsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
-      @ammenities = Ammenity.find(params[:listing][:ammenity_ids])
-      if @ammenities.nil?
+      @search_items = params[:listing][:ammenity_ids]
+      if @search_items.nil? == true
       else
-      @listing.update(ammenities: @ammenities)
+        @ammenities = Ammenity.find(@search_items)
+        @listing.update(ammenities: @ammenities)
       end
     end
   end
