@@ -1,2 +1,65 @@
-<%= @user.first_name %>
-<%= image_tag @user.avatar.variant(resize: "400x400") %>
+<div class="cdf"></div>
+<div class="container-fluid">
+  <section id="next-section" class="probootstrap-section">
+      <div class="probootstrap-animate">
+        <div class="probootstrap-block-image">
+          <div class="row">
+          <div class="col-md-9">
+            <h1 class="mb30">Your Listings</h1>
+            <a href="/listings/new" class="btn btn-ghost">List a new property</a><br><br>
+            <% @user.listings.each do |listing| %>
+            <div class="col-md-9 col-sm-9 probootstrap-animate">
+              <div class="probootstrap-block-image">
+                <div class="row">
+                  <div class="col-md-5">
+                    <figure>
+                      <a href="/listings/<%= listing.id %>"><%= image_tag listing.images.first.variant(resize: "444x325") %></a>
+                    </figure>
+                  </div>
+                  <div class="col-md-7 text">
+                    <h3 class="mb30">
+                      <a href="/listings/<%= listing.id %>"><%= listing.asset_name %></a>
+                    </h3>
+                    <p class="dark"><%= truncate(listing.description) %></p>
+                    <p class="secondary-color rate">
+                      <i class="icon-star-full"></i>
+                      <i class="icon-star-full"></i>
+                      <i class="icon-star-full"></i>
+                      <i class="icon-star-full"></i>
+                      <i class="icon-star-half"></i>
+                    </p>
+                    <h4 class="mb30">
+                      Asking price: <%= listing.pricing %>
+                    </h4>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <div class="col-md-3 text">
+          <h1>Profile</h1>
+            <%= image_tag @user.avatar.variant(resize: "400x400"), class:"img-responsive" %>
+            <br>
+            <label for="">Full name</label>
+            <h3 class="mb30"><%= @user.first_name %> <%= @user.last_name %></h3>
+            <label for="">Email</label>
+            <h3 class="mb30"><%= @user.email %></h3>
+            <label for="">Phone number</label>
+            <h3 class="mb30"><%= @user.number %></h3>
+            <label for="">Website</label>
+            <h3 class="mb30"><a href="<%= @user.website %>"><%= @user.website %></a></h3>
+            <label for="mb30">facebook</label><br>
+            <a href="<%= @user.facebook %>" target="_blank"><%= @user.facebook %></a>
+            <label for="">twitter</label><br>
+            <a href="<%= @user.twitter %>" target="_blank"><%= @user.twitter %></a>
+            <label for="">Instagram</label><br>
+            <a href="<%= @user.instagram %>" target="_blank"><%= @user.instagram %></a>
+            <a href="/users/<%= @user.id %>/edit" class="btn btn-ghost" style="text-align:center;">Edit profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
