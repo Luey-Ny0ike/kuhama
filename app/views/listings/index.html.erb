@@ -5,8 +5,25 @@
   <section id="next-section" class="probootstrap-section">
     <div class="container">
     <h1 class="probootstrap-animate">Listings</h1>
-
-      <div class="row">
+        <div class="col-md-3 col-sm-3 probootstrap-block-image">
+          <div class="text">
+            <%= form_tag listings_path, :method=> "get" do %>
+            <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']]), class:"form-control"%><br>
+            <label for="">No of bedrooms</label><br>
+            <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
+            <label for="">No of bathrooms</label><br>
+            <%= select_tag :bathrooms, options_for_select([['Bathrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
+            <label for="">Size</label><br>
+            <%= text_field_tag :size, params[:size], class:"form-control" %><br>
+            <label for="">Min price</label><br>
+            <%= text_field_tag :min_price, params[:min_price], class:"form-control" %><br>
+            <label for="">Max price</label><br>
+            <%= text_field_tag :max_price, params[:max_price], class:"form-control" %><br>
+            <%= submit_tag("Search", :name => nil) %>
+            <% end %>
+          </div>
+          <br>
+        </div>
         <% @listings.each do |listing| %>
         <div class="col-md-9 col-sm-9 probootstrap-animate">
           <div class="probootstrap-block-image">
@@ -37,23 +54,5 @@
           </div>
         </div>
         <% end %>
-        <div class="col-md-3 col-sm-3">
-          <%= form_tag listings_path, :method=> "get" do %>
-          <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']])%><br>
-          <label for="">No of bedrooms</label><br>
-          <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]])%><br>
-          <label for="">No of bathrooms</label><br>
-            <%= select_tag :bathrooms, options_for_select([['Bathrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]])%><br>
-          <label for="">Size</label><br>
-          <%= text_field_tag :size, params[:size] %><br>
-          <label for="">Min price</label><br>
-          <%= text_field_tag :min_price, params[:min_price] %><br>
-          <label for="">Max price</label><br>
-          <%= text_field_tag :max_price, params[:max_price] %><br>
-          <%= submit_tag("Search", :name => nil) %>
-          <% end %>
-          <br>
-        </div>
-      </div>
     </section>
 </div>
