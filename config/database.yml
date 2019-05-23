@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: kuhama_production
-  username: kuhama
-  password: <%= ENV['KUHAMA_DATABASE_PASSWORD'] %>
+  username: ubuntu
+  password: iambatman74&
