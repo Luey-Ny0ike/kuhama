@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: kuhama_production
-  username: ubuntu
+  username: root
   password: iambatman74&
