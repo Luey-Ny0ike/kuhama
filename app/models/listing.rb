@@ -9,7 +9,7 @@ class Listing < ApplicationRecord
   scope :max_price, -> (max_price) { where ("listings.pricing <= " "#{ max_price }") }
 
   def address
-    [street, city, state, country].compact.join(', ')
+    [building_name, street, city, state, country].compact.join(', ')
   end
   geocoded_by :address
   after_validation :geocode
