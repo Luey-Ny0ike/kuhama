@@ -9,6 +9,8 @@
           <div class="text">
             <%= form_tag listings_path, :method=> "get" do %>
             <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']]), class:"form-control"%><br>
+            <%= select_tag :listing, options_for_select(@listing_categories.collect {|u| [u.name, u.id] }), class:"form-control" %><br>
+          </div>
             <label for="">No of bedrooms</label><br>
             <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
             <label for="">No of bathrooms</label><br>
@@ -23,7 +25,7 @@
             <% end %>
           </div>
           <br>
-        </div>
+
         <% @listings.each do |listing| %>
         <div class="col-md-9 col-sm-9 probootstrap-animate">
           <div class="probootstrap-block-image">
@@ -54,5 +56,6 @@
           </div>
         </div>
         <% end %>
+            </div>
     </section>
 </div>

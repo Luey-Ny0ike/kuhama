@@ -9,18 +9,12 @@
            <%= form_tag listings_path, :method=> "get" do %>
            <div class="row">
            <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']]), :class=> "col-md-3 form-control"%><br>
-           <div class="col-md-9">
-             <%= text_field_tag :size, params[:size], class:"form-control", placeholder:"Enter a location, town, suburb..." %>
-             </div>
-               <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']]), class: "col-md-3 form-control"%><br>
+             <%= text_field_tag :size, params[:size], class:"col-md-9 form-control", placeholder:"Enter a location, town, suburb..." %>
+                 <%= select_tag :listing, options_for_select(@listing_categories.collect {|u| [u.name, u.id] }), class:"col-md-3 form-control" %><br>
            <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"col-md-2 form-control"%><br>
              <%= select_tag :bathrooms, options_for_select([['Bathrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"col-md-2 form-control"%><br>
-           <div class="col-md-2">
-             <%= text_field_tag :min_price, params[:min_price], class:"form-control", placeholder:"min price" %><br>
-           </div>
-           <div class="col-md-2">
-             <%= text_field_tag :max_price, params[:max_price], class:"form-control", placeholder:"max price" %><br>
-           </div>
+             <%= text_field_tag :min_price, params[:min_price], class:"col-md-2 form-control", placeholder:"min price" %><br>
+             <%= text_field_tag :max_price, params[:max_price], class:"col-md-2 form-control", placeholder:"max price" %><br>
            <div class="col-md-1">
              <%= submit_tag("Search", :name => nil)  %>
            </div>

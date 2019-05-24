@@ -5,7 +5,8 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category))
+    @listings = Listing.filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id))
+    @listing_categories = ListingCategory.all
   end
 
   # GET /listings/1
