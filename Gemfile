@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', :require => 'thinking_sphinx'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -62,5 +62,8 @@ gem 'mini_magick'
 gem 'country_select', '~> 4.0'
 gem 'geocoder'
 gem 'thinking-sphinx', '~> 3.1.4'
-gem 'mysql2', :require => 'thinking_sphinx'
 gem 'will_paginate', '~> 3.1.0'
+gem 'toastr-rails'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+gem 'cancancan'
