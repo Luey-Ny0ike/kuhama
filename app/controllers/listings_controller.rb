@@ -5,7 +5,11 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id))
+    if params[:location].present?
+      @listings = Listing.near(params[:location], 10, order: :distance).filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id))
+    else
+      @listings = Listing.filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id))
+    end
     @listing_categories = ListingCategory.all
   end
 
@@ -82,6 +86,6 @@ class ListingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def listing_params
-    params.require(:listing).permit(:asset_name, :main_category, :description, :pricing, :phone_number, :email, :website, :rooms, :bathrooms, :size, :street, :city, :state, :country, :listing_category_id, :user_id, images: [])
+    params.require(:listing).permit(:asset_name, :main_category, :description, :pricing, :phone_number, :email, :website, :rooms, :bathrooms, :size, :building_name, :street, :city, :state, :country, :listing_category_id, :user_id, images: [])
   end
 end
