@@ -5,7 +5,7 @@
   <section id="next-section" class="probootstrap-section">
     <div class="container">
     <h1 class="probootstrap-animate">Listings</h1>
-        <div class="col-md-3 col-sm-3 probootstrap-block-image">
+        <div class="col-md-3 col-sm-3 probootstrap-block-image probootstrap-animate">
           <div class="text">
             <%= form_tag listings_path, :method=> "get" do %>
             <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']]), class:"form-control"%><br>
