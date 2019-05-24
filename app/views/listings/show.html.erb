@@ -1,32 +1,38 @@
-<div class="cdf">
-
-</div>
-  <section id="next-section" class="probootstrap-section">
-    <div class="container">
-      <div class="col-md-8 col-md-8 col-xs-12">
-        <h2 class="mb20"><%= @listing.asset_name %></h2>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-12">
-        <h4>Price: <%= @listing.pricing %> Ksh.</h4>
-      </div>
-      <div class="col-md-8">
-        <hr>
-        <% j = 0 %>
+<div class="cdf"></div>
+<section id="next-section" class="probootstrap-section">
+  <div class="container">
+    <div class="col-md-8 col-md-8 col-xs-12">
+      <h2 class="mb20"><%= @listing.asset_name %></h2>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <h4>Price:
+        <%= @listing.pricing %>
+        Ksh.</h4>
+    </div>
+    <div class="col-md-8">
+      <hr>
+      <% j = 0 %>
         <% @listing.images.each do |upload| %>
           <div class="mySlides">
             <div class="numbertext"><%= j = j+1 %></div>
             <%= image_tag upload.variant(resize: "804x804"), class:"image-popup img-responsive" %>
           </div>
         <% end %>
-        <a class="prev-f" onclick="plusSlides(-1)"><h1 style="color: white;">❮</h1></a>
-        <a class="next-f" onclick="plusSlides(1)"><h1 style="color: white;">❯</h1></a>
+        <a class="prev-f" onclick="plusSlides(-1)">
+          <h1 style="color: white;">❮</h1>
+        </a>
+        <a class="next-f" onclick="plusSlides(1)">
+          <h1 style="color: white;">❯</h1>
+        </a>
         <br>
       </div>
       <div class="col-md-4">
         <h2>Description</h2>
-        <p><%= @listing.description %> Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@listing.latitude}%2C#{@listing.longitude}" %>
-
+        <p><%= @listing.description %>
+          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+        <p>
+          <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@listing.latitude},#{@listing.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map", class:"img-responsive" %>
+        </p>
 
         <p>
           <a href="#" role="button" class="btn btn-primary">Contact Seller</a>
@@ -34,8 +40,6 @@
       </div>
     </div>
   </section>
-
-
 
   <!-- START: section -->
   <section class="probootstrap-section probootstrap-section-colored">
