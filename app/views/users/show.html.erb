@@ -7,7 +7,8 @@
           <div class="col-md-9">
             <h1 class="mb30">Your Listings</h1>
             <a href="/listings/new" class="btn btn-ghost">List a new property</a><br><br>
-            <% @user.listings.each do |listing| %>
+            <% if @listings.any? %>
+            <% @listings.each do |listing| %>
             <div class="col-md-9 col-sm-9 probootstrap-animate">
               <div class="probootstrap-block-image">
                 <div class="row">
@@ -37,10 +38,17 @@
               </div>
             </div>
             <% end %>
+            <% else %>
+            <h3 class="mb30">You have no listings yet.</h3>
+            <% end %>
           </div>
           <div class="col-md-3 text">
           <h1>Profile</h1>
-            <%= image_tag @user.avatar.variant(resize: "400x400"), class:"img-responsive" %>
+          <% if @user.avatar.present? %>
+          <%= image_tag @user.avatar.variant(resize: "400x400"), class:"img-responsive" %>
+          <% else %>
+          <p>Update your avatar. Click on edit profile</p>
+          <% end %>
             <br>
             <label for="">Full name</label>
             <h3 class="mb30"><%= @user.first_name %> <%= @user.last_name %></h3>
