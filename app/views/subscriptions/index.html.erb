@@ -1,0 +1,24 @@
+<div class="cdf"></div>
+
+<div class="container-fluid">
+  <section id="next-section" class="probootstrap-section">
+    <div class="container">
+
+      <h1>Our packages.</h1>
+      <% @subscriptions.each do |subscription|%>
+      <div class="col-md-4 col-sm-4 probootstrap-animate">
+        <div class="probootstrap-block-image subscription-box">
+          <h3><%= subscription.name %></h3>
+          <br>
+          <img src="https://img.icons8.com/color/78/000000/gold-pot.png">
+          <p>Starting from <span style="font-size:40px;"><%= subscription.price %></span>KSH.</p>
+          <p>Featrues: </p>
+          <%= subscription.features %>
+
+          <button type="button" class="btn btn-ghost">Subscribe</button>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </section>
+</div>
