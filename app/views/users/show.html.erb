@@ -46,7 +46,7 @@
           </div>
           <div class="col-md-3 text">
           <h1>Profile</h1>
-          <% if @user.avatar.present? %>
+          <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar.variant(resize: "400x400"), class:"img-responsive" %>
           <% else %>
           <p>Update your avatar. Click on edit profile</p>
