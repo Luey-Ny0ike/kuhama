@@ -15,7 +15,15 @@
           <p>Featrues: </p>
           <%= subscription.features %>
 
+          <% if current_user.following?(subscription) == true %>
+          <%= link_to unsubscribe_path(subscription) do %>
+          <button type="button" class="btn btn-default">Unsubscribe</button>
+          <% end %>
+          <% else %>
+          <%= link_to subscribe_path(subscription) do %>
           <button type="button" class="btn btn-ghost">Subscribe</button>
+          <% end %>
+          <% end %>
         </div>
       </div>
       <% end %>
