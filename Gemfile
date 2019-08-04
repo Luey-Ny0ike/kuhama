@@ -68,3 +68,4 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'cancancan'
 gem "aws-sdk-s3", require: false
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
