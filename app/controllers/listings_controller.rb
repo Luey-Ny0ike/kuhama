@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new edit update destroy]
+  before_action :is_subscribed, only: %i[new edit update destroy]
 
   # GET /listings
   # GET /listings.json
@@ -82,6 +83,12 @@ class ListingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_listing
     @listing = Listing.find(params[:id])
+  end
+
+  def is_subscribed
+    if current_user.follow_count == 0
+      redirect_to subscriptions_url, notice:'You need to subscribe to list a property'
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
