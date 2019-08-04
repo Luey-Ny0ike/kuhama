@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_subscription, only: [:show, :edit, :update, :destroy]
+  before_action :set_subscription, only: [:show, :edit, :update, :destroy, :subscribe, :unsubscribe]
 
   # GET /subscriptions
   # GET /subscriptions.json
@@ -58,6 +58,20 @@ class SubscriptionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to subscriptions_url, notice: 'Subscription was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def subscribe
+    current_user.follow(@subscription)
+    respond_to do |format|
+      format.html { redirect_to new_listing_path, notice: "You have succesfully subscribed" }
+    end
+  end
+
+  def unsubscribe
+    current_user.stop_following(@subscription)
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: "You have succesfully unsubscribed"}
     end
   end
 
