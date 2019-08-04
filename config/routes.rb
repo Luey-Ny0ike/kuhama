@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get 'users/:id', to: "users#show", as: "user"
   get 'users/:id/edit', to: "users#edit", as: "edit_user"
   patch 'users/:id', to: "users#update"
+  get 'subscriptions/:id/subscribe', to:"subscriptions#subscribe", as: "subscribe"
+  get 'subscriptions/:id/unsubscribe', to:"subscriptions#unsubscribe", as: "unsubscribe"
 end
