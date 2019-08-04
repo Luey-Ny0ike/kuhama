@@ -1,5 +1,5 @@
 <div class="cdf"></div>
-<div class="container-fluid">
+<div class="container">
   <section id="next-section" class="probootstrap-section">
       <div class="probootstrap-animate">
         <div class="probootstrap-block-image">
@@ -13,9 +13,11 @@
               <div class="probootstrap-block-image">
                 <div class="row">
                   <div class="col-md-5">
+                    <% if listing.images.attached?%>
                     <figure>
                       <a href="/listings/<%= listing.id %>"><%= image_tag listing.images.first.variant(resize: "444x325") %></a>
                     </figure>
+                    <% end %>
                   </div>
                   <div class="col-md-7 text">
                     <h3 class="mb30">
@@ -59,11 +61,11 @@
             <label for="">Website</label>
             <h3 class="mb30"><a href="<%= @user.website %>"><%= @user.website %></a></h3>
             <label for="mb30">facebook</label><br>
-            <a href="<%= @user.facebook %>" target="_blank"><%= @user.facebook %></a>
+            <a href="<%= @user.facebook %>" target="_blank"><%= @user.facebook %></a><br>
             <label for="">twitter</label><br>
-            <a href="<%= @user.twitter %>" target="_blank"><%= @user.twitter %></a>
+            <a href="<%= @user.twitter %>" target="_blank"><%= @user.twitter %></a><br>
             <label for="">Instagram</label><br>
-            <a href="<%= @user.instagram %>" target="_blank"><%= @user.instagram %></a>
+            <a href="<%= @user.instagram %>" target="_blank"><%= @user.instagram %></a><br>
             <a href="/users/<%= @user.id %>/edit" class="btn btn-ghost" style="text-align:center;">Edit profile</a>
           </div>
         </div>
