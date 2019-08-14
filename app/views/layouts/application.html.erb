@@ -9,9 +9,13 @@
   </head>
 
   <body>
+    <% unless controller_name == 'payments' %>
     <%= render "shared/navbar"%>
+    <% end %>
     <%= yield %>
+    <% unless controller_name == 'payments' %>
     <%= render "shared/footer" %>
+    <% end %>
   </body>
   <%= render "shared/script" %>
 </html>
