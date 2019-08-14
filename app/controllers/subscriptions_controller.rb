@@ -64,7 +64,7 @@ class SubscriptionsController < ApplicationController
   def subscribe
     current_user.follow(@subscription)
     respond_to do |format|
-      format.html { redirect_to new_listing_path, notice: "You have succesfully subscribed" }
+      format.html { redirect_to payments_path, notice: "You have succesfully subscribed" }
     end
   end
 
