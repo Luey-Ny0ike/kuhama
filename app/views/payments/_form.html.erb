@@ -1,27 +1,33 @@
-<%= form_with(model: payment, local: true) do |form| %>
-  <% if payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+<div class="p-form">
+  <%= form_with(model: @payment, local: true) do |form| %>
+  <div class="row">
+    <% if @payment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
 
-      <ul>
-      <% payment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @payment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field col-md-7">
+      <%= form.label :ref, "Mpesa refrence number" %><br>
+      <%= form.text_field :ref, class:"form-control" %>
     </div>
+
+    <div class="field col-md-7">
+      <%= form.label :amount %><br>
+      <%= form.number_field :amount, class:"form-control" %><br>
+    </div>
+
+
+    <div class="actions col-md-7">
+      <%= form.submit "Submit", class: "btn btn-info" %>
+    </div>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ref %>
-    <%= form.text_field :ref %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
