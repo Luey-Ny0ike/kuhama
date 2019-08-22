@@ -8,20 +8,18 @@
           MPESA
         </li>
       </ul>
-      <h3 style="text-align:center;">Please pay the exact amount to complete the subscription.</h3>
+      <h3 style="text-align:center;">Please pay the exact amount to complete the subscription. <br> After successful payment, key in the mpesa REF no and amount in the form below</h3>
       <div class="mpesa">
         <div class="mpesa-logo">
           <%= image_tag 'mpesa-logo.png', class:"center" %>
         </div>
         <h3>Paybill number</h3>
-        <h4><mark>0111000</mark></h4>
-        <br>
-        <h3>Account Number</h3>
-        <h4><mark>B10jkf</mark></h4>
+        <h4><mark>857266</mark></h4>
         <br>
         <h3>Amount</h3>
         <h4><mark>1500</mark></h4><br>
       </div>
+      <%= render 'form' %>
     </div>
   </section>
 </div>
