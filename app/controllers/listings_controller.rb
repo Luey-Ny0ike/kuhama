@@ -7,9 +7,9 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:location].present?
-      @listings = Listing.near(params[:location], 10, order: :distance).filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id)).paginate(page: params[:page], per_page: 1)
+      @listings = Listing.near(params[:location], 10, order: :distance).filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id)).paginate(page: params[:page], per_page: 5)
     else
-      @listings = Listing.filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id)).paginate(page: params[:page], per_page: 1)
+      @listings = Listing.filter(params.slice(:rooms, :bathrooms, :size, :min_price, :max_price, :main_category, :listing_category_id)).paginate(page: params[:page], per_page: 5)
     end
     @listing_categories = ListingCategory.all
   end
