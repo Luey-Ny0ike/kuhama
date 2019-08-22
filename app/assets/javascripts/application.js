@@ -15,3 +15,12 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function(){
+  $("#refined-s").click(function(){
+    $(".refined-search").show(1000);
+  });
+  $("#refined-close").click(function(){
+    $(".refined-search").hide(1000);
+  });
+});
