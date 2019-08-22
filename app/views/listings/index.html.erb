@@ -1,34 +1,59 @@
-  <div class="cdf">
-
-  </div>
-  <div class="container-fluid">
+<div class="cdf"></div>
+<div class="container-fluid">
   <section id="next-section" class="probootstrap-section">
     <div class="container">
-    <h1 class="probootstrap-animate">Listings</h1>
-        <div class="col-md-3 col-sm-3 probootstrap-block-image probootstrap-animate">
+      <h1 class="probootstrap-animate">Listings</h1>
+      <button type="button" class="btn btn-primary hidden-lg" id="refined-s">
+      Refined Search
+    </button>
+      <div class="refined-search"><br>
+        <button type="button" class="btn btn-ghost" id="refined-close" style="text-align:center;">Close</button>
+        <div class="text"><br>
+          <%= form_tag listings_path, :method=> "get" do %>
+          <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']]), class:"form-control"%><br>
+          <%= select_tag :listing, options_for_select(@listing_categories.collect {|u| [u.name, u.id] }), class:"form-control" %><br>
+        </div>
+        <label for="">Location</label>
+        <%= text_field_tag :location, params[:location], class:"form-control" %><br>
+        <label for="">No of bedrooms</label><br>
+        <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
+        <label for="">No of bathrooms</label><br>
+        <%= select_tag :bathrooms, options_for_select([['Bathrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
+        <label for="">Size</label><br>
+        <%= text_field_tag :size, params[:size], class:"form-control" %><br>
+        <label for="">Min price</label><br>
+        <%= text_field_tag :min_price, params[:min_price], class:"form-control" %><br>
+        <label for="">Max price</label><br>
+        <%= text_field_tag :max_price, params[:max_price], class:"form-control" %><br>
+        <%= submit_tag("Search", :name => nil) %>
+      <% end %>
+      </div>
+      <div class="mobile-menu-overlay"></div>
+      <div class="rw">
+        <div class="col-md-3 col-sm-3 probootstrap-block-image probootstrap-animate hidden-xs">
           <div class="text">
             <%= form_tag listings_path, :method=> "get" do %>
             <%= select_tag :main_category, options_for_select([['For Rent'], ['For Sale']]), class:"form-control"%><br>
             <%= select_tag :listing, options_for_select(@listing_categories.collect {|u| [u.name, u.id] }), class:"form-control" %><br>
           </div>
-            <label for="">Location</label>
-            <%= text_field_tag :location, params[:location], class:"form-control" %><br>
-            <label for="">No of bedrooms</label><br>
-            <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
-            <label for="">No of bathrooms</label><br>
-            <%= select_tag :bathrooms, options_for_select([['Bathrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
-            <label for="">Size</label><br>
-            <%= text_field_tag :size, params[:size], class:"form-control" %><br>
-            <label for="">Min price</label><br>
-            <%= text_field_tag :min_price, params[:min_price], class:"form-control" %><br>
-            <label for="">Max price</label><br>
-            <%= text_field_tag :max_price, params[:max_price], class:"form-control" %><br>
-            <%= submit_tag("Search", :name => nil) %>
-            <% end %>
-          </div>
-          <br>
+          <label for="">Location</label>
+          <%= text_field_tag :location, params[:location], class:"form-control" %><br>
+          <label for="">No of bedrooms</label><br>
+          <%= select_tag :rooms, options_for_select([['Bedrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
+          <label for="">No of bathrooms</label><br>
+          <%= select_tag :bathrooms, options_for_select([['Bathrooms', 0], ['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]]), class:"form-control"%><br>
+          <label for="">Size</label><br>
+          <%= text_field_tag :size, params[:size], class:"form-control" %><br>
+          <label for="">Min price</label><br>
+          <%= text_field_tag :min_price, params[:min_price], class:"form-control" %><br>
+          <label for="">Max price</label><br>
+          <%= text_field_tag :max_price, params[:max_price], class:"form-control" %><br>
+          <%= submit_tag("Search", :name => nil) %>
+        <% end %>
+      </div>
+      <br>
 
-        <% @listings.each do |listing| %>
+      <% @listings.each do |listing| %>
         <div class="col-md-9 col-sm-9 probootstrap-animate">
           <div class="probootstrap-block-image">
             <div class="row">
@@ -50,17 +75,19 @@
                   <i class="icon-star-half"></i>
                 </p>
                 <h4 class="mb30">
-                  Asking price: <%= listing.pricing %>
+                  Asking price:
+                  <%= listing.pricing %>
                 </h4>
                 <hr>
               </div>
             </div>
           </div>
         </div>
-        <% end %>
-        <div class="digg_pagination">
-          <%= will_paginate @listings %>
-        </div>
-            </div>
-    </section>
+      <% end %>
+      <div class="digg_pagination">
+        <%= will_paginate @listings %>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
