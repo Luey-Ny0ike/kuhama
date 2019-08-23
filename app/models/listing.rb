@@ -18,7 +18,7 @@ class Listing < ApplicationRecord
   belongs_to :user
   has_many_attached :images
   has_many :listing_ammenities
-  has_many :ammenities, through: :listing_ammenities
+  has_many :ammenities, through: :listing_ammenities, :dependent => :delete_all
 
   # VALIDATIONS
   validates_presence_of :asset_name
@@ -28,5 +28,5 @@ class Listing < ApplicationRecord
   validates_presence_of :phone_number
   validates_presence_of :email
   validates_presence_of :description
-  validates_presence_of :images 
+  validates_presence_of :images
 end
