@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
     UserMailer.with(payment: @payment).payment_mailer.deliver_now
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+        format.html { redirect_to new_listing_path, notice: 'Payment was successfully made.' }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }
