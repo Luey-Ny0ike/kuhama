@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+  <body>
+    <p>Wass good George, a new payment has been made on tusake.co.ke</p>
+    <p>
+      Kindly confirm if it has been reflected or not and approve the user who paid it.
+    </p>
+    <p>
+      <strong>Mpesa Ref No</strong><br>
+      <%= @payment.ref %>
+    </p>
+    <p>
+      <strong>Amount paid.
+      </strong><br>
+      <%= @payment.amount %>
+    </p>
+    <p>
+      <strong>Package subscribed to
+      </strong><br>
+      <%= @subscription.followable.name %>
+    </p>
+  </body>
+</html>
