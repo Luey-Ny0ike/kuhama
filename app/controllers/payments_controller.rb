@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
   def index
     @payments = Payment.all
     @payment = Payment.new
+    @subscription = current_user.all_follows.first 
   end
 
   # GET /payments/1
