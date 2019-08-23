@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
   def index
     @payments = Payment.all
     @payment = Payment.new
-    @subscription = current_user.all_follows.first 
+    @subscription = current_user.all_follows.first
   end
 
   # GET /payments/1
@@ -27,6 +27,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = current_user.payments.build(payment_params)
+    UserMailer.with(payment: @payment).payment_mailer.deliver_now
     respond_to do |format|
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
