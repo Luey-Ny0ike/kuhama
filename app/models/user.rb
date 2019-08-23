@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :listings
+  has_many :payments
   has_one_attached :avatar
   acts_as_follower
   # Include default devise modules. Others available are:
