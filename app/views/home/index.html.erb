@@ -42,10 +42,8 @@
       <% end %>
       <div class="text">
         <h3 class="mb30"><a href="/listings/<%= listing.id %>"><%= listing.asset_name %></a></h3>
-        <p class="dark">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-        <p class="secondary-color rate"><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-half"></i></p>
+        <p class="dark"><%= listing.description %></p>
         <hr>
-        <p class="clearfix like"><a class="pull-left" href="#"><i class="icon-thumbs-up"></i> 5,216</a> <a class="pull-right" href="#"><i class="icon-thumbs-down"></i> 32</a></p>
       </div>
     </div>
   </div>
