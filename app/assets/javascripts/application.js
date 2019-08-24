@@ -23,4 +23,8 @@ $(document).ready(function(){
   $("#refined-close").click(function(){
     $(".refined-search").hide(1000);
   });
+  $(".contact-seller").click(function(){
+    $("#contact-seller").css('display', 'none');
+    $("#phone-number").show();
+  })
 });
