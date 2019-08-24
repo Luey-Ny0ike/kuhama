@@ -27,4 +27,11 @@ class Listing < ApplicationRecord
   validates_presence_of :phone_number
   validates_presence_of :email
   validates_presence_of :description
+  validate :listing_count_within_limit, on: :create
+
+  def listing_count_within_limit
+   if self.user.listings.count > 1 # self is optional
+     errors.add(:user_id, 'Exceeded Listing limit')
+   end
+  end
 end
