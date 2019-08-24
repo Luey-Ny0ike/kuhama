@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  include ActiveModel::Validations
+  validates_with ListingValidator
   include Filterable
   scope :rooms, -> (rooms) { where ("rooms >= " "#{rooms}") }
   scope :main_category, -> (main_category) { where main_category: main_category }
@@ -22,10 +24,7 @@ class Listing < ApplicationRecord
   # VALIDATIONS
   validates_presence_of :asset_name
   validates_presence_of :pricing
-  validates_presence_of :rooms
-  validates_presence_of :bathrooms
   validates_presence_of :phone_number
   validates_presence_of :email
   validates_presence_of :description
-  validates_presence_of :images
 end
