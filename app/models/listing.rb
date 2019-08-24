@@ -7,7 +7,6 @@ class Listing < ApplicationRecord
   scope :asset_size, -> (size) { where ("size >= " "#{ size }") }
   scope :min_price, -> (min_price) { where ("listings.pricing >= " "#{ min_price }") }
   scope :max_price, -> (max_price) { where ("listings.pricing <= " "#{ max_price }") }
-
   def address
     [building_name, street, city, state, country].compact.join(', ')
   end
