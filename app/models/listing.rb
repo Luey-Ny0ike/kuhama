@@ -31,7 +31,7 @@ class Listing < ApplicationRecord
   validate :listing_count_within_limit, on: :create
 
   def listing_count_within_limit
-   if self.user.listings.count > 1 # self is optional
+   if self.user.listings.count >= 1 # self is optional
      errors.add(:user_id, 'Exceeded Listing limit')
    end
   end
