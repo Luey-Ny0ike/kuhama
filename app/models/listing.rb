@@ -27,6 +27,7 @@ class Listing < ApplicationRecord
   validates_presence_of :phone_number
   validates_presence_of :email
   validates_presence_of :description
+  validates_presence_of :images
   validate :listing_count_within_limit, on: :create
 
   def listing_count_within_limit
