@@ -35,12 +35,16 @@
         <h4>No of bathrooms</h4>
         <p><%= @listing.bathrooms %></p>
         <h4>ammenities</h4>
-        <% @listing.ammenities.each do |ammenity| %>
-        <div class="col-md-6 col-xs-6">
-          <span id="dot">. </span><%= ammenity.name %>
+        <div class="row">
+          <% @listing.ammenities.each do |ammenity| %>
+          <div class="col-md-6 col-xs-6">
+            <span id="dot">. </span><%= ammenity.name %>
+          </div>
+          <% end %>
         </div>
-        <% end %><br>
-        <h4>Location</h4>
+        <h4>Location</h4><br>
+        <p><strong>City</strong>: <%= @listing.city %> &nbsp;&nbsp; <strong>Street name</strong>: <%= @listing.street %>
+          <br> <strong>Building name</strong>: <%= @listing.building_name %> </p>
         <p>
           <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@listing.latitude},#{@listing.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map", class:"img-responsive" %>
         </p>
