@@ -67,14 +67,15 @@
                 <h3 class="mb30">
                   <a href="/listings/<%= listing.id %>"><%= listing.asset_name %></a>
                 </h3>
+                <div class="row">
+                  <div class="col-md-6 col-xs-6">
+                    <p><img src="/img/bed.png" alt=""> <%= listing.rooms %> bedroom(s)</p>
+                  </div>
+                  <div class="col-md-6 col-xs-6">
+                    <p><img src="/img/location.png" alt=""><%= listing.city %></p>
+                  </div>
+                </div>
                 <p class="dark"><%= truncate(listing.description) %></p>
-                <p class="secondary-color rate">
-                  <i class="icon-star-full"></i>
-                  <i class="icon-star-full"></i>
-                  <i class="icon-star-full"></i>
-                  <i class="icon-star-full"></i>
-                  <i class="icon-star-half"></i>
-                </p>
                 <h4 class="mb30">
                   Asking price:
                   <%= listing.pricing %>
