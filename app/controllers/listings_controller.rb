@@ -86,7 +86,7 @@ class ListingsController < ApplicationController
   end
 
   def is_subscribed
-    if current_user.follow_count == 0
+    if current_user.listings.count >= 2 && current_user.follow_count == 0
       redirect_to subscriptions_url, notice:'You need to subscribe to list a property'
     end
   end
