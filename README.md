@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby version
+  2.6.3
 
-Things you may want to cover:
+- Rails version
+  5.2.3
 
-* Ruby version
+- Setup
+  Clone project https://github.com/Luey-Ny0ike/kuhama.git
 
-* System dependencies
+  cd into the directory and run:
 
-* Configuration
+  Bundle install
 
-* Database creation
+  Database creation
 
-* Database initialization
+  Run rails db: create
 
-* How to run the test suite
+  Run rails db:migrate - to run the pending migrations
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  Then finally run: rails s to start the app, Visit http://localhost:3000 to view the site
