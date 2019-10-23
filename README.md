@@ -2,7 +2,7 @@
 
 This is a web application to help troubled youth get affordable housing and help landlords get tenants all at the comfort of their homes. Check it out here [tusake.co.ke](http://www.tusake.co.ke/)
 
-#Ruby Version
+## Ruby Version
 
 - Ruby
   2.3.4
@@ -10,7 +10,7 @@ This is a web application to help troubled youth get affordable housing and help
 - Rails
   5.2.3
 
-#Setup
+## Setup
 Clone project `https://github.com/Luey-Ny0ike/kuhama.git`
 
 cd into the directory and run:
