@@ -78,7 +78,7 @@
                 <p class="dark"><%= truncate(listing.description) %></p>
                 <h4 class="mb30">
                   Asking price:
-                  <%= listing.pricing %>
+                  <%= number_to_currency(listing.pricing) %>
                 </h4>
                 <hr>
               </div>
